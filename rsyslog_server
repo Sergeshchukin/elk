@@ -1,1 +1,6 @@
-
+# Provides UDP syslog reception
+$ModLoad imudp
+$UDPServerRun 514
+ 
+template(name="remoteSimple" type="string" string="%msg:2:$%\n")
+local5.info /var/log/my-nginx.log;remoteSimple
