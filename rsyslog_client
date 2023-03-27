@@ -1,1 +1,9 @@
-
+$ModLoad imfile
+$InputFileName /var/log/my-nginx.log
+$InputFileTag my-nginx.log
+$InputFileStateFile my-nginx.log.state
+$InputFileFacility local6
+$InputRunFileMonitor
+ 
+$template simple, "<174> %msg%"
+local6.* @10.128.0.33:514;simple
